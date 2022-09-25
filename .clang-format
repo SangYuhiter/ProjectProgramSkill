@@ -1,0 +1,28 @@
+---
+# We'll use defaults from the Goole style.
+BasedOnStyle: Google
+---
+Language: Cpp
+# 缩进: space, 4列
+IndentWidth:     4
+# 类定义中public/protected/private控制符顶头不留空格
+AccessModifierOffset: -4
+# 行长度限制: 100
+ColumnLimit:     100
+# 类、结构体和函数定义后的大括号单独成行
+BreakBeforeBraces: Allman
+# 指针和引用符号：右侧（靠近变量而非类型）
+DerivePointerAlignment: false
+PointerAlignment: Right
+# Inline短函数以及空函数可以压缩为一行
+AllowShortFunctionsOnASingleLine: Inline
+# 短控制语句块if/else/switch等禁止压缩为一行
+# 短循环语句块for/while等禁止压缩为一行
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+# 注释: // 单行注释之后留一个空格是clang-format默认的，无需配置
+# 行尾// 注释前留空格长度为1，连续多行需要对齐的情况除外
+SpacesBeforeTrailingComments: 1
+---
