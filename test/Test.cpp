@@ -8,12 +8,15 @@
 
 #include "LogUtils.h"
 #include "TestLogUtils.h"
+#include "TestEnumUtils.h"
 
 int main()
 {
     PPS_LOG_ENTRY();
 
     testLogUtils();
+
+    testEnumUtils();
 
     PPS_LOG_EXIT();
     return 0;
