@@ -12,7 +12,7 @@ inline std::string enumString()
     // std::__cxx11::basic_string<char>]
     // so extract the enumValue as the string
     std::string func(__PRETTY_FUNCTION__);
-    PPS_LOG_INFO("%s",func.c_str());
+    PPS_LOG_INFO("%s", func.c_str());
     std::string markBegin = "enumValue = ";
     std::string markEnd = ";";
     auto posBegin = func.find(markBegin) + markBegin.size();

@@ -7,12 +7,13 @@
  ************************************************************************/
 
 #include "LogUtils.h"
-#include "TestLogUtils.h"
 #include "TestEnumUtils.h"
+#include "TestLogUtils.h"
 
 int main()
 {
     PPS_LOG_ENTRY();
+    PPS_LOG_INFO("%zu", sizeof(unsigned long int) * 4);
 
     testLogUtils();
 
@@ -21,4 +22,3 @@ int main()
     PPS_LOG_EXIT();
     return 0;
 }
-
