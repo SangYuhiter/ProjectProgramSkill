@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # File Name    : init.sh
 # Author       : SangYu
 # Email        : sangyu.code@gmail.com

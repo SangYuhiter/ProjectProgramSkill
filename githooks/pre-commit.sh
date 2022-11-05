@@ -1,4 +1,9 @@
 #!/bin/sh
+# File Name    : format.sh
+# Author       : SangYu
+# Email        : sangyu.code@gmail.com
+# Created Time : 2022年11月05日 星期六 13时05分28秒
+# Description  : pre-commit git hooks
 
 # pre commit we need check the code format that follow the
 # .clang-format
