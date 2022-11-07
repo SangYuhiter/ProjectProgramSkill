@@ -43,7 +43,7 @@ TEST_OUT:
 	mkdir -p $(OUT_DIR) $(LIB_DIR)
 	$(CC) $(CPP_FLAGS) -I$(INC_DIR) $(TEST_SOURCE) -o $(OUT_DIR)/$(TEST_OUT).$(VERSION).$(SUFFIX)
 
-.PHONY:	clean htmldocs
+.PHONY:	clean htmldocs cleandocs
 
 clean:
 	-rm -rf $(OUT_DIR)/* $(LIB_DIR)/*
@@ -51,3 +51,5 @@ clean:
 htmldocs:
 	$(SPHINXBUILD) -M html "$(DOCUMENTAION_SOURCE_DIR)" "$(DOCUMENTAION_BUILD_DIR)" $(SPHINXOPTS) $(O)
 
+cleandocs:
+	-rm -rf $(DOCUMENTAION_BUILD_DIR)

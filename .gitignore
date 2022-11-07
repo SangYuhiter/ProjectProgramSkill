@@ -33,3 +33,6 @@
 
 # docs build dir
 docs/out/*
+
+# docs venv
+sphinx_2.4.4/*
