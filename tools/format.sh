@@ -7,7 +7,7 @@
 
 # the root path
 GIT_ROOT="$(git rev-parse --show-toplevel)"
-rootPath=$GIT_ROOT
+checkPath=($GIT_ROOT/inc $GIT_ROOT/src $GIT_ROOT/test)
 
 funcFormatFile()
 {
@@ -47,7 +47,10 @@ funcFormatDir()
 
 if [ -z "$1" ]
 then
-    funcFormatDir $rootPath
+    for dir in ${checkPath[*]}
+    do
+        funcFormatDir $dir
+    done
 else
     funcFormatDir $1
 fi

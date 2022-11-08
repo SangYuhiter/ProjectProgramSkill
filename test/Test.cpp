@@ -7,6 +7,7 @@
  ************************************************************************/
 
 #include "LogUtils.h"
+#include "TestAdd.h"
 #include "TestEnumUtils.h"
 #include "TestLogUtils.h"
 
@@ -18,6 +19,8 @@ int main()
     testLogUtils();
 
     testEnumUtils();
+
+    testAdd();
 
     PPS_LOG_EXIT();
     return 0;

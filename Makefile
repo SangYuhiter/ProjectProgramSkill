@@ -3,9 +3,20 @@ SUFFIX=out
 
 # include head dir
 INC_DIR=./inc
+ADD_INCLUDES_DIR=$(INC_DIR)/Add
+
+INC_TEST_DIR=./test
+MODULE_DEMO_DIR=$(INC_TEST_DIR)/ModuleDemo
+
+INC_FLAGS=-I$(INC_DIR) -I$(ADD_INCLUDES_DIR) -I$(MODULE_DEMO_DIR)
 
 # src file
-SRC_DIR=
+SRC_DIR=./src
+ADD_SOURCES_DIR=$(SRC_DIR)/Add
+
+ADD_SOURCES=$(ADD_SOURCES_DIR)/Add.cpp
+
+SOURCES_FILE=$(ADD_SOURCES)
 
 # lib dir
 LIB_DIR=./lib
@@ -41,7 +52,7 @@ all:TEST_OUT
 
 TEST_OUT:
 	mkdir -p $(OUT_DIR) $(LIB_DIR)
-	$(CC) $(CPP_FLAGS) -I$(INC_DIR) $(TEST_SOURCE) -o $(OUT_DIR)/$(TEST_OUT).$(VERSION).$(SUFFIX)
+	$(CC) $(CPP_FLAGS) $(INC_FLAGS) $(TEST_SOURCE) $(SOURCES_FILE) -o $(OUT_DIR)/$(TEST_OUT).$(VERSION).$(SUFFIX)
 
 .PHONY:	clean htmldocs cleandocs
 
