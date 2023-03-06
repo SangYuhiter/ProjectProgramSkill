@@ -7,15 +7,42 @@
 
 # the root path
 GIT_ROOT="$(git rev-parse --show-toplevel)"
-checkPath=($GIT_ROOT/inc $GIT_ROOT/src $GIT_ROOT/test)
+CHECK_DIR=($GIT_ROOT/inc $GIT_ROOT/src $GIT_ROOT/test)
+
+# the ignore root path
+IGNORE_ROOT="$GIT_ROOT/src/"
+IGNORE_RE_STR="*_ignore"
+
+funcCheckWhetherNeedFormat()
+{
+    for ignoreDir in `ls $IGNORE_ROOT`
+    do
+        absolutePath=$IGNORE_ROOT/$ignoreDir
+        # find ignore dir
+        for ignoreDir in `ls $absolutePath | grep -Ei "$IGNORE_RE_STR"`
+        do
+            IgnoreDir=$absolutePath/$ignoreDir
+            if [ $(echo $1 | grep -c "$IgnoreDir") -eq 1 ]
+            then
+                echo no need format $1
+                return 0
+            fi
+        done
+    done
+    return 1
+}
 
 funcFormatFile()
 {
     if [ $(ls $1 | grep -cEi "\.cpp$|\.h$") -eq 1 ]
     then
-        echo format $1 begin
-        clang-format -i $1
-        echo format $1 end
+        funcCheckWhetherNeedFormat $1
+        if [ $? -eq 1 ]
+        then
+            echo format $1 begin
+            clang-format -i $1
+            echo format $1 end
+        fi
     fi
 }
 
@@ -47,9 +74,9 @@ funcFormatDir()
 
 if [ -z "$1" ]
 then
-    for dir in ${checkPath[*]}
+    for path in ${CHECK_DIR[*]}
     do
-        funcFormatDir $dir
+        funcFormatDir $path
     done
 else
     funcFormatDir $1
