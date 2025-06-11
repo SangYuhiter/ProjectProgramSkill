@@ -21,5 +21,6 @@ echo "init git hook script..."
 ln -s ../../githooks/pre-commit.sh .git/hooks/pre-commit
 
 echo "init environment successful!!!"
+export LD_LIBRARY_PATH=./lib
 
 exit 0

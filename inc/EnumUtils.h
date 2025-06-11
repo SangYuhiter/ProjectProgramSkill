@@ -14,7 +14,7 @@ inline std::string enumString()
     std::string func(__PRETTY_FUNCTION__);
     PPS_LOG_INFO("%s", func.c_str());
     std::string markBegin = "enumValue = ";
-    std::string markEnd = ";";
+    std::string markEnd = "]";
     auto posBegin = func.find(markBegin) + markBegin.size();
     auto posEnd = func.substr(posBegin, func.size() - posBegin).find(markEnd);
     std::string enumStr = func.substr(posBegin, posEnd);
